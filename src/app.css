@@ -23,7 +23,7 @@
     --color-light-secondary: #dddbff;
     --color-light-accent: #d8d6ff;
     
-    --color-text:rgb(209, 208, 228);
+    --color-text:rgb(239, 239, 243);
     --color-background:rgb(26, 26, 36);
     --color-primary: #e999e5;
     --color-secondary:rgb(35, 35, 66);
@@ -42,4 +42,25 @@ body {
 body[class="dark"] {
     background-color: var(--color-background);
     color: var(--color-text);
+}
+
+.wavy {
+  animation-name: wavy;
+  animation-duration: 1.3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+@keyframes wavy {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: -15px;
+  }
+  100% {
+    top: 0px;
+  }
 }
