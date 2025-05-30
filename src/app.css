@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+@font-face{
+    font-family: "CyberpunkWaifus";
+    src: url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.eot");
+    src: url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.ttf")format("truetype");
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+}
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --radius: 0.3rem;
+    --font-default: "CyberpunkWaifus";
+
+    --color-light-text:rgb(22, 22, 36);
+    --color-light-background: #f6eef7;
+    --color-light-primary: #ff99fa;
+    --color-light-secondary: #dddbff;
+    --color-light-accent: #d8d6ff;
+    
+    --color-text:rgb(209, 208, 228);
+    --color-background:rgb(26, 26, 36);
+    --color-primary: #e999e5;
+    --color-secondary:rgb(35, 35, 66);
+    --color-accent: #3e3b85;
+}
+
+* {
+    font-family: var(--font-default);
+}
+
+body {
+    background-color: var(--color-light-background);
+    color: var(--color-light-text);
+}
+
+body[class="dark"] {
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
