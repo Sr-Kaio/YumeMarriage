@@ -1,0 +1,241 @@
+<script lang="js">
+    import Modal from "$lib/components/modal.svelte";
+    import MarrigeCertificate from "$lib/components/marrige-certificate.svelte";
+    import download from "downloadjs";
+    import { text } from "@sveltejs/kit";
+    import { createRawSnippet, unmount } from "svelte";
+    import { mount } from "svelte";
+
+    let marryBtnNames = [
+        "MARRY THEM",
+        "MAKE THEM KISS",
+        "MAKE IT REALITY",
+        "PRINT OUT YOUR MARRIGE CERTIFICATE",
+        "GET YOUR CERTIFICATE RN!!!",
+    ];
+
+    let marry_candidates = $state([]);
+
+    let selection = $state(null);
+
+    import { onMount } from "svelte";
+    let pdf;
+    let png;
+
+    onMount(async () => {
+        pdf = await import("html2pdf.js");
+        png = await import("html-to-image");
+    });
+
+    $effect(() => {
+        $inspect(marry_candidates, selection);
+        document.getElementById("marrybtn").disabled = marry_candidates.length <= 1
+    });
+
+    function addYume(yumeName) {
+        selection = marry_candidates.push(yumeName) - 1;
+    }
+
+    function handleAddYumePrompt() {
+        let buttonsSnippet = createRawSnippet((buttons) => {
+            return {
+                render: () => `<button id="confirm-btn">Confirm</button>`,
+            };
+        });
+
+        let contentSnippet = createRawSnippet((buttons) => {
+            return {
+                render: () =>
+                    `<div class="field-row-stacked"><label for="text17">Put the name of your yume or self-insert!</label><textarea id="yume-name-textarea" type="text"></textarea></div>`,
+            };
+        });
+
+        let modal = mount(Modal, {
+            target: document.body,
+            props: {
+                buttons: buttonsSnippet,
+                title: "Add",
+                content: contentSnippet,
+            },
+        });
+
+        let textarea = document.getElementById("yume-name-textarea");
+        let confirmationButton = document.getElementById("confirm-btn");
+
+        confirmationButton.onclick = () => {
+            if (textarea.value.length == 0) {
+                return;
+            }
+            addYume(textarea.value);
+            unmount(modal);
+        };
+    }
+
+    function handleDownloadPrompt() {
+        let buttonsSnippet = createRawSnippet((buttons) => {
+            return {
+                render: () => '<div class="flex gap-2"><button id="pdf-download">PDF</button><button id="png-down">PNG</button></div>',
+            };
+        });
+
+        let contentSnippet = createRawSnippet(() => {
+            return {
+                render: () =>
+                    `Choose your file type`,
+            };
+        });
+
+        let modal = mount(Modal, {
+            target: document.body,
+            props: {
+                buttons: buttonsSnippet,
+                title: "Download",
+                content: contentSnippet,
+            },
+        });
+
+        let textarea = document.getElementById("yume-name-textarea");
+        let pngButton = document.getElementById("png-down");
+        let pdfButton = document.getElementById("pdf-download");
+
+        pngButton.onclick = () => {
+            dPNG()
+        };
+        pdfButton.onclick = () => {
+            dPDF()
+        };
+    }
+
+    function removeYume() {
+        if (selection == null) {
+            return;
+        }
+
+        marry_candidates.splice(selection);
+        selection = null;
+    }
+        
+    //the "document.getElementById("result")" is a workaround because we cant pass the variable "certificate" directly
+    async function dPNG() {
+        let certificate = mount(MarrigeCertificate, {
+            target: document.body,
+            props: { additionalClass: "min-h-[480px] min-w-[734px]", candidates: marry_candidates },
+        });
+
+        await png
+            .toPng(document.getElementById("result"))
+            .then((dataUrl) => download(dataUrl, "marriage_cerfiticate.png"));
+
+        unmount(certificate);
+    }
+
+    async function dPDF() {
+        let certificate = mount(MarrigeCertificate, {
+            target: document.body,
+            props: { additionalClass: "min-h-[480px]", candidates: marry_candidates },
+        });
+
+        await pdf
+             .default()
+            .from(document.getElementById("result"))
+            .save();
+ ;
+
+        unmount(certificate);
+    }
+</script>
+
+<!-- 
+<Modal title="Add">
+    {#snippet content()}
+        <div class="field-row-stacked">
+            <label for="text17">Put the name of your yume or self-insert!</label>
+            <textarea id="text17" type="text" />
+        </div>
+    {/snippet}
+    {#snippet buttons()}
+        <button>Confirm</button>
+    {/snippet}
+</Modal>
+ -->
+
+<!-- main stuffy stuff -->
+<div class="w-screen h-screen flex flex-col p-2">
+    <div class="h-full w-full flex items-center justify-center">
+        <div
+            class="window overflow-hidden shadow-lg w-full max-h-[512px] max-w-[512px]"
+        >
+            <!-- window header thingy -->
+            <div class="title-bar">
+                <div class="title-bar-text">Yume Marriage Generator X3</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Close" disabled></button>
+                </div>
+            </div>
+
+            <div class="w-full h-[90%] p-3 flex flex-col">
+                <ul class=" p-2 w-full h-64 tree-view">
+                    {#each marry_candidates as candidate, index}
+                        {#if selection == index}
+                            <li
+                                class="bg-[navy] text-white w-full cursor-pointer"
+                            >
+                                {candidate}
+                            </li>
+                        {:else}
+                            <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions (because of reasons) -->
+                            <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+                            <li
+                                class="w-full cursor-pointer"
+                                onclick={() => {
+                                    selection = index;
+                                }}
+                            >
+                                {candidate}
+                            </li>
+                        {/if}
+                    {/each}
+                    <!-- <li class="w-full bg-[navy] text-white cursor-pointer">Sr Kaio</li>
+                    <li class="w-full cursor-pointer">Witchbrew</li> -->
+                </ul>
+
+                <div
+                    class="mt-2 mb-8 w-full flex justify-between sm:flex-row flex-col"
+                >
+                    <div class="flex">
+                        <button
+                            class="w-full text-xl p-1"
+                            onclick={handleAddYumePrompt}
+                        >
+                            Add
+                        </button>
+                        <button class="w-full text-xl p-1" onclick={removeYume}>
+                            Remove
+                        </button>
+                    </div>
+                    <div class="field-row">
+                        <label for="text18">Mode:</label>
+                        <select>
+                            <option class="text-[12px]">Standart</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex justify-between">
+                    <button
+                        id="marrybtn"
+                        class="md:!p-2 md:!px-4 p-[2px] self-center justify-self-end"
+                        onclick={() => {handleDownloadPrompt()}}
+                    >
+                        ❤️ {marryBtnNames[
+                            Math.floor(Math.random() * marryBtnNames.length)
+                        ]}
+                    </button>
+                    <button>Credits</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- this is the footer -->
+    <div class="h-[90px]"></div>
+</div>
