@@ -72,14 +72,22 @@ export function openCreditModal() {
         render: () =>      
         `
             <div class="flex gap-3">
-                <ul class="tree-view aspect-ratio w-45 h-45 !p-[2px] ">
+                <ul class="tree-view aspect-ratio w-45 h-45 !p-[2px] md:!flex !hidden">
                     <img 
                         src="https://avatars.githubusercontent.com/u/89105250?s=400&u=4d271acf45a6140dbe911b7f95c86a86c2c845f7&v=4"
-                        class="w-full bg-cover h-full"
+                        class="w-full bg-cover h-full "
                     >
                 </ul >
                 <div class="flex flex-col">
-                    <h3 class="font-black text-xl">Sr Kaio</h3>
+                    <h3 class="font-black text-xl flex gap-2 items-end">
+                        <ul class="tree-view aspect-ratio w-16 h-16 !p-[2px] md:!hidden !flex">
+                            <img 
+                                src="https://avatars.githubusercontent.com/u/89105250?s=400&u=4d271acf45a6140dbe911b7f95c86a86c2c845f7&v=4"
+                                class="w-full bg-cover h-full "
+                            >
+                        </ul >
+                        Sr Kaio
+                    </h3>
                     <p class="my-1">Special thanks to <a href="https://x.com/kitsunecar">kitsunecar</a></p>
                     <p class="max-w-80 mb-6">This website was made with Svelte, SvelteKit, TailwindCSS and hosted with Vercel</p>
                     <div class="flex">
