@@ -109,7 +109,7 @@ input[type="submit"]:disabled {
 }
 .title-bar {
     align-items: center;
-    background: linear-gradient(90deg, navy, #1084d0);
+    background: linear-gradient(90deg,rgba(196, 90, 219, 1) 0%, #3E2C85 100%);
     text-shadow: 2px 2px 0px black;
     display: flex;
     justify-content: space-between;
@@ -509,7 +509,7 @@ input[type="range"]::-moz-range-track {
     transform: translateY(0) scaleX(-1);
 }
 select:focus {
-    background-color: navy;
+    background-color: #C45ADB;
     color: #fff;
 }
 select:focus option {
@@ -540,7 +540,7 @@ ul.tree-view a {
     text-decoration: none;
 }
 ul.tree-view a:focus {
-    background-color: navy;
+    background-color: #C45ADB;
     color: #fff;
 }
 ul.tree-view li,
@@ -728,7 +728,7 @@ table.interactive > tbody > tr {
     cursor: pointer;
 }
 table > tbody > tr.highlighted {
-    background-color: navy;
+    background-color: #C45ADB;
     color: #fff;
 }
 table > tbody > tr > * {
@@ -748,13 +748,13 @@ table > tbody > tr > * {
     position: relative;
 }
 .progress-indicator > .progress-indicator-bar {
-    background-color: navy;
+    background-color: #C45ADB;
     display: block;
     height: 100%;
 }
 .progress-indicator.segmented > .progress-indicator-bar {
     background-color: transparent;
-    background-image: linear-gradient(90deg, navy 16px, transparent 0 2px);
+    background-image: linear-gradient(90deg, #C45ADB 16px, transparent 0 2px);
     background-repeat: repeat;
     background-size: 18px 100%;
     width: 100%;

@@ -9,7 +9,7 @@
         <!-- svelte-ignore a11y_click_events_have_key_events -->
         <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
         <li
-            class="w-full cursor-pointer {selection === index ? 'bg-[navy] text-white' : ''}"
+            class="w-full cursor-pointer {selection === index ? 'bg-[#C45ADB] text-white' : ''}"
             on:click={() => onSelect(index)}
         >
             {candidate}

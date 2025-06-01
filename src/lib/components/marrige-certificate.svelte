@@ -21,9 +21,9 @@
 
 <div
     id="result"
-    class="flex justify-center flex-col items-center {additionalClass} border-12 border-[gray] bg-white"
+    class="flex justify-center flex-col items-center {additionalClass} bg-no-repeat bg-[url('./src/lib/assets/frame.png')] bg-cover bg-center"
 >
-    <h1 class="!font-fancy text-5xl mb-16">Certificate Of Marrige</h1>
+    <h1 class="!font-fancy text-5xl font-bold mb-16">Certificate Of Marrige</h1>
     <p class="!font-fancy-2 text-2xl">This certifies that</p>
     <div class="">
         <p class="!font-fancy-2 text-3xl font-bold max-w-70 text-center">
@@ -43,16 +43,16 @@
     </div>
     <p class="!font-fancy-2 text-2xl">
         Were Wed on <span
-            class="!font-fancy-2 font-bold underline underline-offset-1"
+            class="!font-fancy-2 font-bold underline underline-offset-1 mx-2"
         >
             {d.getDate()}th
         </span>
         Day of
-        <span class="!font-fancy-2 underline font-bold underline-offset-1">
+        <span class="!font-fancy-2 underline font-bold underline-offset-1 mx-2">
             {monthNames[d.getMonth()]}
         </span>
         In the Year
-        <span class="!font-fancy-2 underline font-bold underline-offset-1">
+        <span class="!font-fancy-2 underline font-bold underline-offset-1 mx-2">
             {d.getFullYear()}
         </span>
     </p>

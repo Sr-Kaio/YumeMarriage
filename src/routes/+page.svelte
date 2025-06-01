@@ -58,10 +58,11 @@
     }
 </script>
 
-<div class="w-screen h-screen flex flex-col p-4">
+<div class="w-screen h-screen flex flex-col p-4 ">
     <div class="h-full w-full flex items-center justify-center">
         <div
-            class="window overflow-hidden shadow-lg w-full max-h-[512px] max-w-[512px]"
+            class="window overflow-hidden w-full max-h-[512px] max-w-[512px]"
+            style="filter:drop-shadow(3px 5px 0 black);"
         >
             <!-- window header thingy -->
             <div class="title-bar">

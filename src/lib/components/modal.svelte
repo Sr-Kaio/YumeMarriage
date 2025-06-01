@@ -14,7 +14,7 @@
 <div
     bind:this={modal_bg}
     id="modal"
-    class="fadeIn absolute left-0 p-2 right-0 top-0 bottom-0 bg-[navy]/50 backdrop-blur-md z-100 flex justify-center items-center"
+    class="fadeIn absolute left-0 p-2 right-0 top-0 bottom-0 bg-[#3E2C85]/50 backdrop-blur-md z-100 flex justify-center items-center"
 >
     <div
         bind:this={modal_popup}

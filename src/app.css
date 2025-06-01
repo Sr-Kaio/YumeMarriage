@@ -85,7 +85,18 @@ p, h1, h2, h3 {
 body {
     cursor: url(http://www.rw-designer.com/cursor-download.php?id=90885), pointer;
     cursor: url(http://www.rw-designer.com/cursor-download.php?id=90885), auto;
-    background-color: teal;
+    background: url("./src/lib/assets/tile.png") repeat;
+    background-size: 75px;
+    animation: lv 100000s linear infinite;
+    height: 100vh;
+    width: 100vw;
+}
 
-    
+@keyframes lv {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 4000000px 4000000px;
+  }
 }
