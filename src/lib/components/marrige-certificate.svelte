@@ -25,21 +25,21 @@
 >
     <h1 class="!font-fancy text-5xl mb-16">Certificate Of Marrige</h1>
     <p class="!font-fancy-2 text-2xl">This certifies that</p>
-    <div class="flex">
+    <div class="">
+        <p class="!font-fancy-2 text-3xl font-bold max-w-70 text-center">
         {#each candidates as item, index}
-            <p class="!font-fancy-2 text-3xl font-bold">
                 <span class="!font-fancy-2 underline underline-offset-1"
                     >{item}</span
                 >
                 {#if index == candidates.length - 1}
-                    <span class="!font-fancy-2 font-normal">.</span>
+                    <span class="!font-fancy-2 font-normal mr-2">.</span>
                 {:else if index == candidates.length - 2}
-                    <span class="!font-fancy-2 font-normal">and</span>
+                    <span class="!font-fancy-2 font-normal mr-2">and</span>
                 {:else}
-                    <span class="!font-fancy-2 font-normal">,</span>
+                    <span class="!font-fancy-2 font-normal mr-2">,</span>
                 {/if}
-            </p>
         {/each}
+        </p>
     </div>
     <p class="!font-fancy-2 text-2xl">
         Were Wed on <span

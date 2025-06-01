@@ -1,5 +1,7 @@
 import { createRawSnippet, mount, unmount } from "svelte";
 import Modal from "$lib/components/modal.svelte";
+import { browser } from "$app/environment";
+import { href } from "$lib/utils/url_utils.js";
 
 export function openAddYumeModal(addYume) {
     const buttons = createRawSnippet(() => ({
@@ -38,10 +40,11 @@ export function openDownloadModal(onPDF, onPNG) {
                 <button id="pdf-download">PDF</button>
                 <button id="png-download">PNG</button>
             </div>`
+
     }));
 
     const content = createRawSnippet(() => ({
-        render: () => `Choose your file type`
+        render: () => `<p class="max-w-64">Choose your file type, if your certificate comes out broken, try regenerating it, otherwise, report it.</p>`
     }));
 
     const modal = mount(Modal, {
@@ -49,6 +52,54 @@ export function openDownloadModal(onPDF, onPNG) {
         props: { title: "Download", buttons, content }
     });
 
+    // If the user is using firefox, it will block the png downloading functictionality since it's not supported on firefox
+    document.getElementById("png-download").disabled = navigator.userAgent.indexOf("Firefox")  != -1
     document.getElementById("pdf-download").onclick = onPDF;
     document.getElementById("png-download").onclick = onPNG;
+}
+
+
+export function openCreditModal() {
+
+    const buttons = createRawSnippet(() => ({
+        render: () =>
+            `<div>
+         
+            </div>`
+    }));
+
+    const content = createRawSnippet(() => ({
+        render: () =>      
+        `
+            <div class="flex gap-3">
+                <ul class="tree-view aspect-ratio w-30 !p-[2px] ">
+                    <img 
+                        src="https://avatars.githubusercontent.com/u/89105250?s=400&u=4d271acf45a6140dbe911b7f95c86a86c2c845f7&v=4"
+                        class="w-full bg-cover h-full"
+                    >
+                </ul >
+                <div class="flex flex-col">
+                    <h3 class="font-black text-xl">Sr Kaio</h3>
+                    <p>Special thanks to <a href="https://x.com/kitsunecar">kitsunecar</a></p>
+                    <div class="flex">
+                        <button id="github-btn">My Github</button>
+                        <button id="yt-btn">My Youtube</button>
+                        <button id="x-btn">My X (Twitter)</button>
+                        
+
+                    </div>
+                </div>
+            </div>
+
+        `
+    }));
+
+    const modal = mount(Modal, {
+        target: document.body,
+        props: { title: "This wonderful website was made by", buttons, content }
+    });
+
+    document.getElementById("github-btn").onclick = () => {href("https://github.com/Sr-Kaio")};
+    document.getElementById("yt-btn").onclick = () => {href("https://www.youtube.com/@sr_kaio")};
+    document.getElementById("x-btn").onclick = () => {href("https://x.com/sr_kaio_dev")};
 }

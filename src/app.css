@@ -1,17 +1,17 @@
 @import 'tailwindcss';
 @import './98.css';
 
-@font-face{
-    font-family: "CyberpunkWaifus";
-    src: url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.eot");
-    src: url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.eot?#iefix")format("embedded-opentype"),
-        url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.woff")format("woff"),
-        url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.woff2")format("woff2"),
-        url("https://db.onlinewebfonts.com/t/eab8ba82f23d8de63cdcc380c89eb875.ttf")format("truetype");
-    font-weight:normal;
-    font-style:normal;
-    font-display:swap;
+@font-face {
+  font-family: "w95font";
+  src: url("https://arnesava.github.io/w95font/assets/fonts/w95font.woff2") format("woff2"), url("https://arnesava.github.io/w95font/assets/fonts/w95font.woff") format("woff");
+  font-weight: normal;
 }
+@font-face {
+  font-family: "w95font";
+  src: url("https://arnesava.github.io/w95font/assets/fonts/w95font-bold.woff2") format("woff2"), url("https://arnesava.github.io/w95font/assets/fonts/w95font-bold.woff") format("woff");
+  font-weight: bold;
+}
+
 @font-face {
   font-family: 'Monsieur La Doulaise';
   font-style: normal;
@@ -59,7 +59,7 @@
 
 @theme {
     --radius: 0.3rem;
-    --font-default: "CyberpunkWaifus";
+    --font-default: "w95font", -apple-system, system-ui, sans-serif;
     --font-fancy: "Monsieur La Doulaise", cursive;
     --font-fancy-2: "Imperial Script", cursive;
 
@@ -72,6 +72,14 @@
 
 * {
     font-family: var(--font-default);
+    font-smooth: never;
+    webkit-font-smoothing: none;
+    contain: paint;
+}
+
+p, h1, h2, h3 {
+  contain: paint;
+  transform: translateX(0.25px)
 }
 
 body {
@@ -81,4 +89,3 @@ body {
 
     
 }
-

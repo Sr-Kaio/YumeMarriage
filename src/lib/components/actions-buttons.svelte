@@ -12,14 +12,15 @@
     ];
 </script>
 
-<div class="flex justify-between">
+<div class="flex justify-between gap-2">
     <button class="w-full text-xl p-1" on:click={onAdd}>Add</button>
     <button class="w-full text-xl p-1" on:click={onRemove}>Remove</button>
 </div>
 
+
 <button
     id="marrybtn"
-    class="md:!p-2 md:!px-4 p-[2px]"
+    class="!p-2 !px-4"
     disabled={isMarryDisabled}
     on:click={onDownload}
 >

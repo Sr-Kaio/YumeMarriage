@@ -38,7 +38,7 @@
             <button
                 onclick={destroy()}
             >
-                Cancel
+                Close
             </button>
         </div>
     </div>
