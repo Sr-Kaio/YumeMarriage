@@ -11,6 +11,23 @@
         "PRINT OUT YOUR MARRIGE CERTIFICATE",
         "GET YOUR CERTIFICATE RN!!!",
     ];
+
+    const d = new Date();
+
+    const monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
 </script>
 
 <div class="flex justify-between gap-2">
@@ -19,6 +36,20 @@
     <button class="w-full text-xl p-1" on:click={onClear}>Clear</button>
 </div>
 
+<div class="flex justify-between w-full md:flex-row flex-col gap-2">
+    <div class="field-row">
+        <label for="text1">Day</label>
+        <input id="day" type="text" class="w-full" value="{d.getDate()}th"/>
+    </div>
+    <div class="field-row">
+        <label for="text2">Month</label>
+        <input id="month" type="text" class="w-full" value={monthNames[d.getMonth()]}/>
+    </div>
+    <div class="field-row">
+        <label for="text3">Year</label>
+        <input id="year" type="text" class="w-full" value={d.getFullYear()}/>
+    </div>
+</div>
 
 <button
     id="marrybtn"

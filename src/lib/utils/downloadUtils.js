@@ -5,7 +5,10 @@ export async function generatePNG(png, marry_candidates, mount, unmount, Marriag
         target: document.body,
         props: {
             additionalClass: "h-[480px] w-[734px]",
-            candidates: marry_candidates
+            candidates: marry_candidates,
+            year: document.getElementById("year").value,
+            month: document.getElementById("month").value,
+            day: document.getElementById("day").value,
         }
     });
 
@@ -24,7 +27,11 @@ export async function generatePDF(pdf, marry_candidates, mount, unmount, Marriag
         target: document.body,
         props: {
             additionalClass: "h-[480px]",
-            candidates: marry_candidates
+            candidates: marry_candidates,
+            year: document.getElementById("year").value,
+            month: document.getElementById("month").value,
+            day: document.getElementById("day").value,
+
         }
     });
 
