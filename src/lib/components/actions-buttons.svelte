@@ -1,6 +1,7 @@
 <script>
     export let onAdd;
     export let onRemove;
+    export let onClear;
     export let onDownload;
     export let isMarryDisabled = false;
     let marryBtnNames = [
@@ -15,6 +16,7 @@
 <div class="flex justify-between gap-2">
     <button class="w-full text-xl p-1" on:click={onAdd}>Add</button>
     <button class="w-full text-xl p-1" on:click={onRemove}>Remove</button>
+    <button class="w-full text-xl p-1" on:click={onClear}>Clear</button>
 </div>
 
 

@@ -29,6 +29,10 @@
         selection = marry_candidates.push(name) - 1;
     }
 
+    function clear() {
+        marry_candidates = []
+    }
+
     function removeYume() {
         if (selection !== null) {
             marry_candidates.splice(selection, 1);
@@ -83,6 +87,7 @@
                 <ActionButtons
                     onAdd={() => openAddYumeModal(addYume)}
                     onRemove={removeYume}
+                    onClear={clear}
                     onDownload={handleDownloadPrompt}
                     isMarryDisabled={marry_candidates.length <= 1}
                 />
