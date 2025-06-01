@@ -1,4 +1,4 @@
-import download from "downloadjs";
+import { download, href } from "./url_utils";
 
 export async function generatePNG(png, marry_candidates, mount, unmount, MarriageCertificate) {
     const certificate = mount(MarriageCertificate, {
@@ -13,7 +13,7 @@ export async function generatePNG(png, marry_candidates, mount, unmount, Marriag
 
     if (element) {
         const dataUrl = await png.toPng(element);
-        download(dataUrl, "marriage_certificate.png");
+        download("marriage_certificate", dataUrl)
     }
 
     unmount(certificate);

@@ -51,9 +51,8 @@ export function openDownloadModal(onPDF, onPNG) {
         props: { title: "Download", buttons, content }
     });
 
-    // If the user is using firefox, it will block the png downloading functictionality since it's not supported on firefox
-    document.getElementById("png-download").disabled = navigator.userAgent.indexOf("Firefox")  != -1
-    document.getElementById("pdf-download").onclick = onPDF;
+    //document.getElementById("png-download").disabled = navigator.userAgent.indexOf("Firefox")  != -1
+    //document.getElementById("pdf-download").onclick = onPDF;
     document.getElementById("png-download").onclick = onPNG;
 }
 
