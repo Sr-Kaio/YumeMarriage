@@ -37,7 +37,6 @@ export function openDownloadModal(onPDF, onPNG) {
     const buttons = createRawSnippet(() => ({
         render: () =>
             `<div class="flex gap-2">
-                <button id="pdf-download">PDF</button>
                 <button id="png-download">PNG</button>
             </div>`
 
