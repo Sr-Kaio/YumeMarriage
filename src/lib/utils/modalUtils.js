@@ -51,7 +51,7 @@ export function openDownloadModal(onPDF, onPNG) {
         props: { title: "Download", buttons, content }
     });
 
-    //document.getElementById("png-download").disabled = navigator.userAgent.indexOf("Firefox")  != -1
+    document.getElementById("png-download").disabled = navigator.userAgent.indexOf("Firefox")  != -1
     //document.getElementById("pdf-download").onclick = onPDF;
     document.getElementById("png-download").onclick = onPNG;
 }
