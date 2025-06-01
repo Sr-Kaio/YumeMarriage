@@ -97,7 +97,7 @@
             onclick={() => {
                 openCreditModal();
             }}
-            class="md:flex hidden aspect-square h-32 bg-contain bg-[url('./src/lib/assets/balls.png')] duration-200 hover:animate-pulse hover:scale-105 bg-no-repeat cursor-pointer bg-top-left hover:bg-[url('./src/lib/assets/ballshover.png')] m-0"
+            class="md:flex hidden aspect-square h-32 bg-contain bg-[url('https://87ge3umaqf.ufs.sh/f/1QXbLCVSX7TZ0RRTBiNO3BCrZURVzNiFXEglodTjqSa6GJyk')] duration-200 hover:animate-pulse hover:scale-105 bg-no-repeat cursor-pointer bg-top-left hover:bg-[url('https://87ge3umaqf.ufs.sh/f/1QXbLCVSX7TZ0snSo0vNO3BCrZURVzNiFXEglodTjqSa6GJy')] m-0"
         ></div>
         <button
             class="!p-3 md:hidden w-12"

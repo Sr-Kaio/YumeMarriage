@@ -21,7 +21,7 @@
 
 <div
     id="result"
-    class="flex justify-center flex-col items-center {additionalClass} bg-no-repeat bg-[url('./src/lib/assets/frame.png')] bg-cover bg-center"
+    class="flex justify-center flex-col items-center {additionalClass} bg-no-repeat bg-[url('https://87ge3umaqf.ufs.sh/f/1QXbLCVSX7TZrdvu5EGr6Yp8J0BARcaDZLixn4dOKWy3Qvso')] bg-cover bg-center"
 >
     <h1 class="!font-fancy text-5xl font-bold mb-16">Certificate Of Marrige</h1>
     <p class="!font-fancy-2 text-2xl">This certifies that</p>
