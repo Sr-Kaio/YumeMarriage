@@ -8,6 +8,7 @@
 >
     <h1 class="!font-fancy text-5xl font-bold mb-16">Certificate Of Marrige</h1>
     <p class="!font-fancy-2 text-3xl">This certifies that</p>
+
     <p class="!font-fancy-2 text-5xl font-bold max-w-128 text-center">
         {#each candidates as item, index}
             <span class="!font-fancy-2 underline underline-offset-1"
@@ -22,6 +23,7 @@
             {/if}
         {/each}
     </p>
+
     <p class="!font-fancy-2 text-3xl">
         Were Wed on <span
             class="!font-fancy-2 font-bold underline underline-offset-1 mx-2"

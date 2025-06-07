@@ -51,7 +51,21 @@ export function openDownloadModal(onPDF, onPNG) {
         props: { title: "Download", buttons, content }
     });
 
-    document.getElementById("png-download").disabled = navigator.userAgent.indexOf("Firefox")  != -1
+    //Check for browser supportiblity
+    let chromeAgent = navigator.userAgent.indexOf("Chrome") > -1;
+    let firefoxAgent = navigator.userAgent.indexOf("Firefox") > -1;
+    let safariAgent = navigator.userAgent.indexOf("Safari") > -1;
+
+    // we need to do this sine for some reason chrome and safari agents are the same thing
+    if (chromeAgent) {
+        safariAgent = false
+    }
+    console.log(chromeAgent, firefoxAgent, safariAgent)
+    if (firefoxAgent || safariAgent) {
+        document.getElementById("png-download").innerHTML = "Not Supported in your Browser"
+        document.getElementById("png-download").disabled = true
+    }
+
     //document.getElementById("pdf-download").onclick = onPDF;
     document.getElementById("png-download").onclick = onPNG;
 }
