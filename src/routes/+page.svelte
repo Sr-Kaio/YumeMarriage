@@ -43,14 +43,6 @@
     function handleDownloadPrompt() {
         openDownloadModal(
             () =>
-                generatePDF(
-                    pdf,
-                    marry_candidates,
-                    mount,
-                    unmount,
-                    MarrigeCertificate,
-                ),
-            () =>
                 generatePNG(
                     png,
                     marry_candidates,

@@ -33,7 +33,7 @@ export function openAddYumeModal(addYume) {
     };
 }
 
-export function openDownloadModal(onPDF, onPNG) {
+export function openDownloadModal(onPNG) {
     const buttons = createRawSnippet(() => ({
         render: () =>
             `<div class="flex gap-2">
@@ -43,7 +43,7 @@ export function openDownloadModal(onPDF, onPNG) {
     }));
 
     const content = createRawSnippet(() => ({
-        render: () => `<p class="max-w-64">Choose your file type, if your certificate comes out broken, try regenerating it, otherwise, report it.</p>`
+        render: () => `<div class="flex flex-col gap-2"><p class="max-w-72">Choose your file type, if your certificate comes out broken, try regenerating it, otherwise, report it.</p> <p class="font-bold max-w-72">The Website could have problems rendering if you're using it at smaller resolutions, if anything happens use the "Desktop site" view</p></div>`
     }));
 
     const modal = mount(Modal, {
