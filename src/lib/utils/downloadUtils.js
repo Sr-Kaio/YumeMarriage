@@ -1,7 +1,7 @@
 import { download, href } from "./url_utils";
 
 export async function generatePNG(png, marry_candidates, mount, unmount, MarriageCertificate) {
-    const certificate = mount(MarriageCertificate, {
+    const certificate = await mount(MarriageCertificate, {
         target: document.body,
         props: {
             additionalClass: "h-full w-full max-h-[480px] max-w-[734px]",
