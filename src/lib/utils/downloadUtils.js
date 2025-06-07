@@ -4,7 +4,7 @@ export async function generatePNG(png, marry_candidates, mount, unmount, Marriag
     const certificate = mount(MarriageCertificate, {
         target: document.body,
         props: {
-            additionalClass: "h-[480px] w-[734px]",
+            additionalClass: "h-full w-full max-h-[480px] max-w-[734px]",
             candidates: marry_candidates,
             year: document.getElementById("year").value,
             month: document.getElementById("month").value,
@@ -22,24 +22,24 @@ export async function generatePNG(png, marry_candidates, mount, unmount, Marriag
     unmount(certificate);
 }
 
-export async function generatePDF(pdf, marry_candidates, mount, unmount, MarriageCertificate) {
-    const certificate = mount(MarriageCertificate, {
-        target: document.body,
-        props: {
-            additionalClass: "h-[480px]",
-            candidates: marry_candidates,
-            year: document.getElementById("year").value,
-            month: document.getElementById("month").value,
-            day: document.getElementById("day").value,
+// export async function generatePDF(pdf, marry_candidates, mount, unmount, MarriageCertificate) {
+//     const certificate = mount(MarriageCertificate, {
+//         target: document.body,
+//         props: {
+//             additionalClass: "h-[480px]",
+//             candidates: marry_candidates,
+//             year: document.getElementById("year").value,
+//             month: document.getElementById("month").value,
+//             day: document.getElementById("day").value,
 
-        }
-    });
+//         }
+//     });
 
-    const element = document.getElementById("result");
+//     const element = document.getElementById("result");
 
-    if (element) {
-        await pdf.default().from(element).save();
-    }
+//     if (element) {
+//         await pdf.default().from(element).save();
+//     }
 
-    unmount(certificate);
-}
+//     unmount(certificate);
+// }

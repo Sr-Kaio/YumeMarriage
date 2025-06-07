@@ -6,7 +6,7 @@
     id="result"
     class="flex justify-center flex-col items-center {additionalClass} bg-no-repeat bg-[url('https://87ge3umaqf.ufs.sh/f/1QXbLCVSX7TZrdvu5EGr6Yp8J0BARcaDZLixn4dOKWy3Qvso')] bg-cover bg-center"
 >
-    <h1 class="!font-fancy text-5xl font-bold mb-16">Certificate Of Marrige</h1>
+    <h1 class="!font-fancy text-5xl font-bold mb-16">Certificate Of Marriage</h1>
     <p class="!font-fancy-2 text-3xl">This certifies that</p>
 
     <p class="!font-fancy-2 text-5xl font-bold max-w-128 text-center">
@@ -40,3 +40,4 @@
         </span>
     </p>
 </div>
+
