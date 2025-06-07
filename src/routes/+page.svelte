@@ -7,7 +7,7 @@
         openDownloadModal,
         openCreditModal,
     } from "$lib/utils/modalUtils";
-    import { generatePDF, generatePNG } from "$lib/utils/downloadUtils";
+    import { generatePNG } from "$lib/utils/downloadUtils";
     import MarrigeCertificate from "$lib/components/marrige-certificate.svelte";
 
     let marry_candidates = $state([]);
