@@ -106,7 +106,7 @@
             This website is <a href="https://github.com/Sr-Kaio/YumeMarriage"
                 >Open Source</a
             >, Find any issues?
-            <a href="https://github.com/Sr-Kaio/YumeMarriage/issues/new"
+            <a href="https://github.com/Sr-Kaio/YumeMarriage/issues?q=is%3Aissue"
                 >Report it!</a
             >
         </p>
